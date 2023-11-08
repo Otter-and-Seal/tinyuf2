@@ -228,6 +228,8 @@ static int selected_boot_partition(const bootloader_state_t *bs)
           }
 #endif
 
+#ifdef PIN_BUTTON_UF2
+
           if ( boot_index != FACTORY_INDEX )
           {
             esp_rom_gpio_pad_select_gpio(PIN_BUTTON_UF2);
@@ -247,6 +249,7 @@ static int selected_boot_partition(const bootloader_state_t *bs)
               }
             }
           }
+#endif
 
 #if PIN_DOUBLE_RESET_RC
           gpio_ll_set_level(&GPIO, PIN_DOUBLE_RESET_RC, 0);
